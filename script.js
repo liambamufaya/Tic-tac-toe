@@ -1,5 +1,4 @@
-//Gameboard that represents the stae of the game
-
+//Gameboard that represents the grid of the game
 function Gameboard(){
 
     let board = [];
@@ -12,12 +11,12 @@ function Gameboard(){
             board[i].push(Cell())
         
     }
-    // console.log(board)
-
+    //Placing the required letter on the cell
     const PlaceMarker=(row,column,letter)=>{
         board[row][column].addMarker(letter);
     }
-
+    //Iterate thorough every cell of the grid to call
+    // the marker function
     const showMarker = ()=>board.map((row)=>   
     row.map((cell)=>cell.getMarker()))
 
@@ -25,11 +24,13 @@ function Gameboard(){
 return {PlaceMarker,showMarker}
 
 }
-
+//example of a marker being placee
 board = Gameboard();
 board.PlaceMarker(2,2,"X");
 console.log(board.showMarker());
-// A cell representing each letter
+
+// Each cell has a marker either X or O represented
+// as strings
 function Cell(){
  let marker = null;
     const addMarker = (letter)=> (marker = letter);
